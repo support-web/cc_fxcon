@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="description" content="FXの基礎を1分で学べる初心者向け学習サイト。わかりやすい解説とクイズで、FXの仕組みやリスクを正しく理解しましょう。">
+
+  <!-- OGP -->
+  <meta property="og:title" content="FX学習 | 1分でわかるFXの基礎">
+  <meta property="og:description" content="FXの基礎を1分で学べる初心者向け学習サイト。わかりやすい解説とクイズで正しく理解。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="images/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="FX学習">
+
+  <title>FX学習 | 1分でわかるFXの基礎</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="home">
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__logo">FX学習</div>
+  </header>
+
+  <!-- メインコンテンツ -->
+  <main class="main">
+    <!-- ヒーロー -->
+    <div class="hero">
+      <h1 class="hero__title">1分でわかるFXの基礎</h1>
+      <p class="hero__subtitle">初心者向けのやさしい解説で、FXの仕組みとリスクを正しく理解しましょう</p>
+    </div>
+
+    <!-- 続きから -->
+    <section class="section hidden" id="continue-section">
+      <h2 class="section__title">続きから学ぶ</h2>
+      <div id="continue-card"></div>
+    </section>
+
+    <!-- 今日の1分 -->
+    <section class="section">
+      <h2 class="section__title">おすすめレッスン</h2>
+      <div id="recommended-lesson"></div>
+    </section>
+
+    <!-- 導線カード -->
+    <section class="section">
+      <h2 class="section__title">コンテンツ</h2>
+
+      <a href="learn.html" class="card card--clickable">
+        <div class="card__header">
+          <div class="card__icon">📚</div>
+          <div class="card__content">
+            <div class="card__title">学ぶ</div>
+            <div class="card__description">FXの基礎を10本のレッスンで学べます</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="quiz.html" class="card card--clickable">
+        <div class="card__header">
+          <div class="card__icon">🎯</div>
+          <div class="card__content">
+            <div class="card__title">クイズ</div>
+            <div class="card__description">3問クイズで理解度をチェック</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="glossary.html" class="card card--clickable">
+        <div class="card__header">
+          <div class="card__icon">📖</div>
+          <div class="card__content">
+            <div class="card__title">用語辞典</div>
+            <div class="card__description">FX用語30語をわかりやすく解説</div>
+          </div>
+        </div>
+      </a>
+    </section>
+
+    <!-- 口座開設導線（弱） -->
+    <div class="cta-banner">
+      <div class="cta-banner__title">FXを始めてみたい方へ</div>
+      <div class="cta-banner__text">
+        まずは基礎を学んでから。デモ口座で練習してからリアル取引を始めることをおすすめします。
+      </div>
+      <a href="#" class="cta-banner__btn" onclick="trackCTA('home_banner')">
+        口座開設を検討する →
+      </a>
+    </div>
+  </main>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="footer__links">
+      <a href="about.html" class="footer__link">運営者情報</a>
+      <a href="disclaimer.html" class="footer__link">免責事項・リスク説明</a>
+      <a href="privacy.html" class="footer__link">プライバシーポリシー</a>
+      <a href="contact.html" class="footer__link">お問い合わせ</a>
+    </div>
+    <div class="footer__copyright">&copy; 2024 FX学習</div>
+  </footer>
+
+  <!-- 下部タブナビゲーション -->
+  <nav class="tab-nav">
+    <a href="index.html" class="tab-nav__item active">
+      <span class="tab-nav__icon">🏠</span>
+      <span class="tab-nav__label">ホーム</span>
+    </a>
+    <a href="learn.html" class="tab-nav__item">
+      <span class="tab-nav__icon">📚</span>
+      <span class="tab-nav__label">学ぶ</span>
+    </a>
+    <a href="glossary.html" class="tab-nav__item">
+      <span class="tab-nav__icon">📖</span>
+      <span class="tab-nav__label">用語</span>
+    </a>
+    <a href="me.html" class="tab-nav__item">
+      <span class="tab-nav__icon">👤</span>
+      <span class="tab-nav__label">マイ</span>
+    </a>
+  </nav>
+
+  <!-- Scripts -->
+  <script src="js/lessons.js"></script>
+  <script src="js/glossary.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // Service Worker登録
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => console.log('SW registered'))
+          .catch(err => console.log('SW registration failed:', err));
+      });
+    }
+  </script>
+</body>
+</html>
