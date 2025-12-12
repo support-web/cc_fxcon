@@ -1,0 +1,1022 @@
+/* ===================================
+   FX学習コンテンツサイト - メインCSS
+   モバイルファースト / アプリ風UI
+=================================== */
+
+:root {
+  /* カラーパレット */
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --primary-light: #3b82f6;
+  --secondary: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --success: #22c55e;
+
+  /* グレースケール */
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+
+  /* レイアウト */
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  --tab-height: 60px;
+  --header-height: 56px;
+
+  /* フォント */
+  --font-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+
+  /* 影 */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+/* リセット */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-base);
+  background: var(--gray-50);
+  color: var(--gray-800);
+  line-height: 1.7;
+  min-height: 100vh;
+  padding-bottom: calc(var(--tab-height) + var(--safe-area-bottom) + 16px);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===================================
+   ヘッダー
+=================================== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: white;
+  border-bottom: 1px solid var(--gray-200);
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.header__logo {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.header__title {
+  font-size: 16px;
+  font-weight: 600;
+  flex: 1;
+  text-align: center;
+}
+
+.header__back {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: var(--gray-600);
+}
+
+.header__back:hover {
+  background: var(--gray-100);
+  text-decoration: none;
+}
+
+/* ===================================
+   下部タブナビゲーション
+=================================== */
+.tab-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: white;
+  border-top: 1px solid var(--gray-200);
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: var(--safe-area-bottom);
+  height: calc(var(--tab-height) + var(--safe-area-bottom));
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+}
+
+.tab-nav__item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 4px;
+  color: var(--gray-400);
+  text-decoration: none;
+  transition: color 0.2s;
+  min-height: 44px;
+}
+
+.tab-nav__item:hover {
+  text-decoration: none;
+}
+
+.tab-nav__item.active {
+  color: var(--primary);
+}
+
+.tab-nav__icon {
+  font-size: 24px;
+  margin-bottom: 2px;
+}
+
+.tab-nav__label {
+  font-size: 10px;
+  font-weight: 500;
+}
+
+/* ===================================
+   メインコンテンツ
+=================================== */
+.main {
+  padding: 16px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* ===================================
+   ヒーローセクション
+=================================== */
+.hero {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  padding: 32px 20px;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.hero__title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.hero__subtitle {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* ===================================
+   カードUI
+=================================== */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 12px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.card--clickable {
+  cursor: pointer;
+}
+
+.card--clickable:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.card--clickable:active {
+  transform: translateY(0);
+}
+
+.card__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.card__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--gray-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.card__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.card__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gray-800);
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+.card__meta {
+  font-size: 12px;
+  color: var(--gray-500);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card__description {
+  font-size: 14px;
+  color: var(--gray-600);
+  line-height: 1.6;
+}
+
+.card__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.card__badge--completed {
+  background: var(--success);
+  color: white;
+}
+
+.card__badge--new {
+  background: var(--warning);
+  color: white;
+}
+
+/* ===================================
+   セクション
+=================================== */
+.section {
+  margin-bottom: 24px;
+}
+
+.section__title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section__more {
+  font-size: 13px;
+  color: var(--primary);
+  margin-left: auto;
+}
+
+/* ===================================
+   フィルター/タブ
+=================================== */
+.filter-tabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 4px 0;
+  margin-bottom: 16px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.filter-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.filter-tab {
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: var(--gray-100);
+  color: var(--gray-600);
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-tab:hover {
+  background: var(--gray-200);
+}
+
+.filter-tab.active {
+  background: var(--primary);
+  color: white;
+}
+
+/* ===================================
+   検索
+=================================== */
+.search-box {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.search-box__input {
+  width: 100%;
+  padding: 12px 16px 12px 44px;
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  font-size: 16px;
+  background: white;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-box__input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.search-box__icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray-400);
+  font-size: 18px;
+}
+
+/* ===================================
+   レッスン詳細
+=================================== */
+.lesson {
+  background: white;
+  border-radius: 16px;
+  padding: 24px 20px;
+  margin-bottom: 16px;
+}
+
+.lesson__header {
+  margin-bottom: 20px;
+}
+
+.lesson__category {
+  display: inline-block;
+  padding: 4px 12px;
+  background: var(--primary-light);
+  color: white;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.lesson__title {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.lesson__meta {
+  font-size: 13px;
+  color: var(--gray-500);
+  display: flex;
+  gap: 12px;
+}
+
+.lesson__content {
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--gray-700);
+}
+
+.lesson__content h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 24px 0 12px;
+  color: var(--gray-800);
+}
+
+.lesson__content h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 20px 0 10px;
+  color: var(--gray-800);
+}
+
+.lesson__content p {
+  margin-bottom: 16px;
+}
+
+.lesson__content ul, .lesson__content ol {
+  margin: 16px 0;
+  padding-left: 24px;
+}
+
+.lesson__content li {
+  margin-bottom: 8px;
+}
+
+/* 重要ポイント */
+.key-points {
+  background: var(--gray-50);
+  border-left: 4px solid var(--primary);
+  padding: 16px 20px;
+  border-radius: 0 12px 12px 0;
+  margin: 24px 0;
+}
+
+.key-points__title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.key-points__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.key-points__item {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.key-points__item::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--success);
+  font-weight: 700;
+}
+
+/* リスク注意 */
+.risk-note {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 24px 0;
+}
+
+.risk-note__title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--danger);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.risk-note__text {
+  font-size: 13px;
+  color: var(--gray-700);
+  line-height: 1.6;
+}
+
+/* ===================================
+   クイズUI
+=================================== */
+.quiz {
+  background: white;
+  border-radius: 16px;
+  padding: 24px 20px;
+}
+
+.quiz__progress {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.quiz__progress-item {
+  flex: 1;
+  height: 4px;
+  background: var(--gray-200);
+  border-radius: 2px;
+  transition: background 0.3s;
+}
+
+.quiz__progress-item.active {
+  background: var(--primary);
+}
+
+.quiz__progress-item.correct {
+  background: var(--success);
+}
+
+.quiz__progress-item.wrong {
+  background: var(--danger);
+}
+
+.quiz__question-number {
+  font-size: 13px;
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.quiz__question {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.quiz__choices {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.quiz__choice {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  background: var(--gray-50);
+  border: 2px solid var(--gray-200);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.quiz__choice:hover {
+  border-color: var(--primary);
+  background: white;
+}
+
+.quiz__choice.selected {
+  border-color: var(--primary);
+  background: rgba(37, 99, 235, 0.05);
+}
+
+.quiz__choice.correct {
+  border-color: var(--success);
+  background: rgba(34, 197, 94, 0.1);
+}
+
+.quiz__choice.wrong {
+  border-color: var(--danger);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.quiz__choice-marker {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--gray-300);
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.quiz__choice.selected .quiz__choice-marker {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: white;
+}
+
+.quiz__choice.correct .quiz__choice-marker {
+  border-color: var(--success);
+  background: var(--success);
+  color: white;
+}
+
+.quiz__choice.wrong .quiz__choice-marker {
+  border-color: var(--danger);
+  background: var(--danger);
+  color: white;
+}
+
+.quiz__explanation {
+  margin-top: 20px;
+  padding: 16px;
+  background: var(--gray-50);
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.quiz__explanation-title {
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--gray-700);
+}
+
+/* クイズ結果 */
+.quiz-result {
+  text-align: center;
+  padding: 32px 20px;
+}
+
+.quiz-result__score {
+  font-size: 64px;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.quiz-result__label {
+  font-size: 16px;
+  color: var(--gray-500);
+  margin-bottom: 24px;
+}
+
+.quiz-result__message {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 32px;
+}
+
+/* ===================================
+   ボタン
+=================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-height: 48px;
+}
+
+.btn--primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn--primary:hover {
+  background: var(--primary-dark);
+  text-decoration: none;
+}
+
+.btn--secondary {
+  background: var(--gray-100);
+  color: var(--gray-700);
+}
+
+.btn--secondary:hover {
+  background: var(--gray-200);
+  text-decoration: none;
+}
+
+.btn--success {
+  background: var(--success);
+  color: white;
+}
+
+.btn--outline {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+.btn--outline:hover {
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+}
+
+.btn--block {
+  width: 100%;
+}
+
+.btn--sm {
+  padding: 10px 16px;
+  font-size: 13px;
+  min-height: 40px;
+}
+
+.btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+/* ===================================
+   進捗表示
+=================================== */
+.progress-bar {
+  height: 8px;
+  background: var(--gray-200);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar__fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.progress-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.progress-stat {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+}
+
+.progress-stat__value {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.progress-stat__label {
+  font-size: 12px;
+  color: var(--gray-500);
+  margin-top: 4px;
+}
+
+/* バッジ */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  background: white;
+  border-radius: 12px;
+  width: calc(33.333% - 8px);
+  min-width: 90px;
+}
+
+.badge--locked {
+  opacity: 0.5;
+}
+
+.badge__icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.badge__name {
+  font-size: 11px;
+  text-align: center;
+  color: var(--gray-600);
+}
+
+/* ===================================
+   CTA（口座開設導線）
+=================================== */
+.cta-banner {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 24px 0;
+}
+
+.cta-banner__title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.cta-banner__text {
+  font-size: 13px;
+  opacity: 0.9;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.cta-banner__btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 20px;
+  background: white;
+  color: var(--primary-dark);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* ===================================
+   フッター
+=================================== */
+.footer {
+  margin-top: 40px;
+  padding: 24px 16px;
+  background: white;
+  border-top: 1px solid var(--gray-200);
+  text-align: center;
+}
+
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.footer__link {
+  font-size: 12px;
+  color: var(--gray-500);
+}
+
+.footer__copyright {
+  font-size: 11px;
+  color: var(--gray-400);
+}
+
+/* ===================================
+   用語詳細
+=================================== */
+.term {
+  background: white;
+  border-radius: 16px;
+  padding: 24px 20px;
+}
+
+.term__title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.term__definition {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--primary);
+  padding: 16px;
+  background: var(--gray-50);
+  border-radius: 12px;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.term__section {
+  margin-bottom: 20px;
+}
+
+.term__section-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gray-500);
+  margin-bottom: 8px;
+}
+
+.term__section-content {
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* ===================================
+   固定ページ（免責等）
+=================================== */
+.static-page {
+  background: white;
+  border-radius: 16px;
+  padding: 24px 20px;
+}
+
+.static-page h1 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.static-page h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 24px 0 12px;
+}
+
+.static-page p {
+  margin-bottom: 16px;
+  line-height: 1.8;
+}
+
+.static-page ul {
+  margin: 16px 0;
+  padding-left: 24px;
+}
+
+.static-page li {
+  margin-bottom: 8px;
+}
+
+/* ===================================
+   ユーティリティ
+=================================== */
+.text-center { text-align: center; }
+.text-muted { color: var(--gray-500); }
+.text-sm { font-size: 13px; }
+.text-xs { font-size: 11px; }
+.mt-8 { margin-top: 8px; }
+.mt-16 { margin-top: 16px; }
+.mt-24 { margin-top: 24px; }
+.mb-8 { margin-bottom: 8px; }
+.mb-16 { margin-bottom: 16px; }
+.mb-24 { margin-bottom: 24px; }
+
+.hidden { display: none !important; }
+
+/* ===================================
+   レスポンシブ（タブレット以上）
+=================================== */
+@media (min-width: 768px) {
+  .main {
+    padding: 24px;
+  }
+
+  .hero {
+    padding: 48px 32px;
+  }
+
+  .hero__title {
+    font-size: 32px;
+  }
+
+  .progress-stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .badge {
+    width: calc(25% - 9px);
+  }
+}
+
+/* PWA対応 - スタンドアロンモード */
+@media (display-mode: standalone) {
+  body {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* ダークモード対応（任意） */
+@media (prefers-color-scheme: dark) {
+  /* MVPではライトモードのみ */
+}

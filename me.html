@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="description" content="学習の進捗状況を確認できます。">
+
+  <meta property="og:title" content="マイページ | FX学習">
+  <meta property="og:description" content="学習の進捗状況を確認">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="images/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <title>マイページ | FX学習</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="me">
+  <header class="header">
+    <div class="header__title">マイページ</div>
+  </header>
+
+  <main class="main">
+    <!-- 進捗 -->
+    <section class="section">
+      <h2 class="section__title">学習の進捗</h2>
+      <div id="progress-bar" class="mb-16"></div>
+      <div id="progress-stats" class="progress-stats"></div>
+    </section>
+
+    <!-- バッジ -->
+    <section class="section">
+      <h2 class="section__title">獲得バッジ</h2>
+      <div id="badges" class="badges"></div>
+    </section>
+
+    <!-- 最近見たレッスン -->
+    <section class="section">
+      <h2 class="section__title">最近見たレッスン</h2>
+      <div id="recent-lessons"></div>
+    </section>
+
+    <!-- PWAガイド -->
+    <section class="section" id="pwa-guide"></section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__links">
+      <a href="about.html" class="footer__link">運営者情報</a>
+      <a href="disclaimer.html" class="footer__link">免責事項</a>
+      <a href="privacy.html" class="footer__link">プライバシー</a>
+      <a href="contact.html" class="footer__link">お問い合わせ</a>
+    </div>
+    <div class="footer__copyright">&copy; 2024 FX学習</div>
+  </footer>
+
+  <nav class="tab-nav">
+    <a href="index.html" class="tab-nav__item">
+      <span class="tab-nav__icon">🏠</span>
+      <span class="tab-nav__label">ホーム</span>
+    </a>
+    <a href="learn.html" class="tab-nav__item">
+      <span class="tab-nav__icon">📚</span>
+      <span class="tab-nav__label">学ぶ</span>
+    </a>
+    <a href="glossary.html" class="tab-nav__item">
+      <span class="tab-nav__icon">📖</span>
+      <span class="tab-nav__label">用語</span>
+    </a>
+    <a href="me.html" class="tab-nav__item active">
+      <span class="tab-nav__icon">👤</span>
+      <span class="tab-nav__label">マイ</span>
+    </a>
+  </nav>
+
+  <script src="js/lessons.js"></script>
+  <script src="js/glossary.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
